@@ -1,0 +1,18 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let task of allTasks; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{task.date}}</td>
+            <td><button (click)="showTask(task.id)"><i class="fas fa-eye"></i></button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

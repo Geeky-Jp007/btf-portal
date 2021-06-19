@@ -1,0 +1,50 @@
+<header class="jumbotron">
+    <div class="container pb-5 pt-5" style="min-height: 600px;">
+        <div class="col-12 col-sm-4 offset-sm-4 align-self-center" *ngIf="currentWeek">
+            <h5 class="text-center"> Complete this week task details</h5>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+
+                <div class="form-group">
+                    <textarea  class="form-control" placeholder="Write this week tasks" rows="6"
+                    [formControl]="myForm.controls['tasks']"></textarea>
+                </div>
+
+                <div class="alert alert-danger mt-3" *ngIf="!myForm.controls['tasks'].valid && myForm.controls['tasks'].touched">
+                    This field is mandatory.
+                </div>
+
+                <div class="form-group mt-3">
+                    <textarea  class="form-control" placeholder="Write this week additional tasks" rows="6"
+                    [formControl]="myForm.controls['addTasks']"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="checkbox" class="form-control" id="completed" name="completed"
+                    [formControl]="myForm.controls['completed']" aria-label="Checkbox for following text input">
+                    <label for="completed" class="text-white">Task fully completed?</label>
+                </div>
+
+                <div class="form-group mt-3">
+                    <textarea  class="form-control" placeholder="Write this week new ideas." rows="6"
+                    [formControl]="myForm.controls['newIdeas']"></textarea>
+                </div>
+
+                <div class="text-center mt-3 d-grid gap-2">
+                    <button type="submit" class="btn btn-outline-primary" [disabled]="!myForm.valid">Submit Task</button>
+                </div>
+            </form>
+
+            <div class="alert alert-success mt-3" *ngIf="message.length>0">
+                {{ message }}
+            </div>
+            
+            <div class="alert alert-danger mt-3" *ngIf="userError">
+                {{ userError.message }}
+            </div>
+            
+        </div>
+        <div class="alert alert-danger mt-3" *ngIf="!currentWeek">
+            You have already submit this week task. Please come back next week.
+        </div>
+    </div>
+</header>

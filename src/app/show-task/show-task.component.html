@@ -1,0 +1,25 @@
+
+<table class="table table-hover" *ngIf="task">
+    <tbody>
+      <tr>
+        <th scope="row">Date</th>
+        <td>{{task.date}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Task</th>
+        <td>{{task.task}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Additional Tasks</th>
+        <td >{{task.addTasks}}</td>
+      </tr>
+      <tr>
+        <th scope="row">New Ideas</th>
+        <td >{{task.newIdeas}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Task fully completed?</th>
+        <td>{{task.completed}}</td>
+      </tr>
+    </tbody>
+  </table>
